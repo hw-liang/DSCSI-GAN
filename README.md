@@ -8,11 +8,11 @@ Implementation of DSCSI-GAN on histopathology images
     - [Patch images](#patch-images)
 - [Training-DSCSI-GAN](#training-dscsi-gan)
     - [Resnet34](#resnet34-dscsi-gan)
-    - [GAN](#gan-dscsi-gan)
+    - [DSCSI-GAN](#dscsi-gan)
 - [Testing-DSCSI-GAN](#testing-dscsi-gan)
 - [Training-SST](#training-sst)
     - [Resnet34](#resnet34-sst)
-    - [GAN](#gan-sst)
+    - [GAN](#gan)
 - [Testing-SST](#testing-sst)
 
 # Prerequisites
@@ -87,8 +87,8 @@ Training has two procedures:
    Feed x and x̂ to current discriminator to obtain GAN-loss;
    Based on three losses, update the generator part of GAN;
    Use GAN-loss to update the discriminator part of GAN.
-```
-## Resnet34
+
+## Resnet34-DSCSI-GAN
 With the generated patch images, we can now train the model by the following command
 ```
 python ./TranResNet34/train_with_validation.py
@@ -97,7 +97,7 @@ Please modify `./wsi/patches/tumor_train`(normal_train,tumor_valid,normal_valid)
 
 By default, `train.py` use 1 GPU (GPU_0) to train model, 2 processes for load tumor patch images, and 2 processes to load normal patch images. On one GTX 1050, it took about 1.5 hours to train 12000 images.
 
-## GAN
+## DSCSI-GAN
 With the generated patch images and trained TranResNet34 model, we can now train the GAN by following command:
 ```
 python ./dscsi_train.py
@@ -113,7 +113,7 @@ python ./dscsi_test.py
 Please modify “./TranResnet34/save_models/TranResnet34_params.pkl” to your own path of trained ResNet34 model and “./save_models/dscsi/G_params.pkl” to your path of saving DSCSI-GAN model. Please also modify “./wsi/patches/tumor_test” (normal_test) respectively to your own path of generated patch images. Please also modify “./wsi/jsons/test” with respect to the full path to the repo on your machine. Typically, dscsi_test.py will generate the result of classification task, including Accuracy, Precision, Recall and AUC, and save the generated images along with their original counterpart into file “/demo/dscsi/”.
 In addition, we can also sample the generated images of the model. Uncomment the `sample_images` function implementation in dscsi_test.py, and you could get the original and genereated images. Please modify `./demo/test_result/%d_%d.png` in this function to your own path of generated test images.
 
-# Training-DSCSI-GAN
+# Training-SST
 
 Training has two procedures:
 ```
@@ -126,7 +126,7 @@ Training has two procedures:
    Based on three losses, update the generator part of GAN;
    Use GAN-loss to update the discriminator part of GAN.
 ```
-## Resnet34
+## Resnet34-SST
 With the generated patch images, we can now train the model by the following command
 ```
 python ./TranResNet34/train_with_validation.py
