@@ -6,10 +6,10 @@ Implementation of DSCSI-GAN on histopathology images
     - [Whole slide images](#whole-slide-images)
     - [Annotations](#annotations)
     - [Patch images](#patch-images)
-- [Training-DSCSI](#training-dscsi)
-    - [Resnet34](#resnet34-dscsi)
-    - [GAN](#gan-dscsi)
-- [Testing-DSCSI-GAN](#testing-dscsi)
+- [Training-DSCSI-GAN](#training-dscsi-gan)
+    - [Resnet34](#resnet34-dscsi-gan)
+    - [GAN](#gan-dscsi-gan)
+- [Testing-DSCSI-GAN](#testing-dscsi-gan)
 - [Training-SST](#training-sst)
     - [Resnet34](#resnet34-sst)
     - [GAN](#gan-sst)
@@ -113,7 +113,8 @@ python ./dscsi_test.py
 Please modify “./TranResnet34/save_models/TranResnet34_params.pkl” to your own path of trained ResNet34 model and “./save_models/dscsi/G_params.pkl” to your path of saving DSCSI-GAN model. Please also modify “./wsi/patches/tumor_test” (normal_test) respectively to your own path of generated patch images. Please also modify “./wsi/jsons/test” with respect to the full path to the repo on your machine. Typically, dscsi_test.py will generate the result of classification task, including Accuracy, Precision, Recall and AUC, and save the generated images along with their original counterpart into file “/demo/dscsi/”.
 In addition, we can also sample the generated images of the model. Uncomment the `sample_images` function implementation in dscsi_test.py, and you could get the original and genereated images. Please modify `./demo/test_result/%d_%d.png` in this function to your own path of generated test images.
 
-# Training-SST
+# Training-DSCSI-GAN
+
 Training has two procedures:
 ```
 1. Create training and validation dataset, and train modified ResNet34 for binary classification.
