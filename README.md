@@ -1,5 +1,5 @@
 # Stain-Style-Transfer-of-Histopathology-Images-Using-Structural-Similarity-Based-Generative-Learning
-Implementation of DSCSI-GAN on histopathology images. And this repo also includes the reimplementation of paper [Neural Stain-Style Transfer Learning using GAN for Histopathological Images](https://arxiv.org/abs/1710.08543).
+Implementation of DSCSI-GAN on histopathology images. And this repo also contains the reimplementation of paper [Neural Stain-Style Transfer Learning using GAN for Histopathological Images](https://arxiv.org/abs/1710.08543).
 
 - [Prerequisites](#prerequisites)
 - [Data](#data)
