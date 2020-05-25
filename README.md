@@ -104,7 +104,7 @@ python ./dscsi_train.py
 ```
 Please modify “./TranResnet34/save_models/TranResnet34_params.pkl” to where you save your pretrained classifier. Please also modify “./wsi/patches/tumor_train”   (normal_train) respectively to your own path of generated patch images. Please modify './wsi/jsons/train' (valid) with respect to the path of training (validation) repo on your machine. Typically, sst_train.py will generate a D_params.pkl and G_params.pkl, which is the most recently saved model and the model will be saved in file “/save_models/dscsi/”.
 
-# Testing-SST
+# Testing-DSCSI-GAN
 The main testing result from a trained model for WSI analysis is the classification result that represents whether the model judges the image is tumor or normal. The testing image is from a second distinct dataset-- Utrecht University, which can prove the generalization capacity of the model.
 By using the following command:
 ```
