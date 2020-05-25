@@ -11,7 +11,7 @@ from unet_generator import UNet
 torch.manual_seed(0)
 torch.cuda.manual_seed_all(0)
 
-def new_generator(source_path='./wsi/patches/normal_test', save_path='./demo/dscsi/', model_path = './save_models/G_params_dscsi.pkl'):
+def dscsi_generator(source_path='./wsi/patches/normal_test', save_path='./demo/dscsi/', model_path = './save_models/G_params_dscsi.pkl'):
     G = UNet(3,3).cuda()
     # To load new dscsi loss based model
     G.load_state_dict(torch.load(model_path))
@@ -42,4 +42,4 @@ def new_generator(source_path='./wsi/patches/normal_test', save_path='./demo/dsc
 
 
 if __name__ == '__main__':
-    new_generator()
+    dscsi_generator()
